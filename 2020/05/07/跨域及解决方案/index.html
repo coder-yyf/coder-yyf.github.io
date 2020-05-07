@@ -6,52 +6,53 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hexo搭建教程 | 波奇的博客</title>
+  <title>跨域及解决方案 | 波奇的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先安装node环境     错了删掉blog就行了  启动  在4000端口中  hexo new创建新文章，hexo s用来预览的   我们可以该里面的md   先清理一下   生成  这样就有文章了  部署到github中  名字注意  安装部署插件  设置yml这个文件   部署到远端  注意这里：后面有空格 这样就成了  换主题  github.com&#x2F;litten&#x2F;hexo-theme-">
+  <meta name="description" content="省略时80端口  访问静态资源，就是访问图片那些，设置了可以跨域，可能只是路由可以跨域，静态资源不一定能跨域  jsonp现在不流行了      通过js标签，将远程的数据用本地的函数操作 不合理，数据请求放到本地  ajax和fetch和axios的区别  https:&#x2F;&#x2F;www.cnblogs.com&#x2F;chaoyuehedy&#x2F;p&#x2F;10991132.html    liveserver默认端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo搭建教程">
-<meta property="og:url" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:title" content="跨域及解决方案">
+<meta property="og:url" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="波奇的博客">
-<meta property="og:description" content="先安装node环境     错了删掉blog就行了  启动  在4000端口中  hexo new创建新文章，hexo s用来预览的   我们可以该里面的md   先清理一下   生成  这样就有文章了  部署到github中  名字注意  安装部署插件  设置yml这个文件   部署到远端  注意这里：后面有空格 这样就成了  换主题  github.com&#x2F;litten&#x2F;hexo-theme-">
+<meta property="og:description" content="省略时80端口  访问静态资源，就是访问图片那些，设置了可以跨域，可能只是路由可以跨域，静态资源不一定能跨域  jsonp现在不流行了      通过js标签，将远程的数据用本地的函数操作 不合理，数据请求放到本地  ajax和fetch和axios的区别  https:&#x2F;&#x2F;www.cnblogs.com&#x2F;chaoyuehedy&#x2F;p&#x2F;10991132.html    liveserver默认端">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183004321.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183213509.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183158002.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183635911.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184005862.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184232913.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184313173.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184553164.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184637956.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/%25E5%25B7%25A5%25E4%25BD%259C/%25E5%2585%2585%25E7%2594%25B5/image-20200504184829721.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184940680.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185036814.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185111833.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185202492.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185601266.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185710455.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185835464.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504190015189.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504210140915.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504211845174.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504211927545.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504212708174.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504215006510.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504215023267.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504215227063.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504215241687.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200505010656766.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200506221134548.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200506221143857.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200506221157508.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200506221249484.png">
-<meta property="article:published_time" content="2020-05-06T14:27:43.000Z">
-<meta property="article:modified_time" content="2020-05-06T14:28:36.548Z">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211542273.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211611509.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211738223.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215025693.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215131231.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215235310.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215359582.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215450803.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215652639.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215853552.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321220824900.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221011131.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221046979.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221205590.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221230925.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221252850.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221309409.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221415739.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221427943.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221447202.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221643370.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221717570.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321223020503.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321224330503.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321224453085.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225013141.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225030596.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225340613.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225416745.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225500629.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321223749855.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321235305806.png">
+<meta property="article:published_time" content="2020-05-07T15:04:46.000Z">
+<meta property="article:modified_time" content="2020-05-07T15:08:11.206Z">
 <meta property="article:author" content="波奇">
-<meta property="article:tag" content="学习杂项">
+<meta property="article:tag" content="前端学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183004321.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211542273.png">
   
     <link rel="alternative" href="/atom.xml" title="波奇的博客" type="application/atom+xml">
   
@@ -187,87 +188,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo搭建教程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-跨域及解决方案" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo搭建教程
+      跨域及解决方案
     </h1>
   
 
         
-        <a href="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-05-06T14:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
+        <a href="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
+  	<time datetime="2020-05-07T15:04:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>先安装node环境</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183004321.png" alt="image-20200504183004321"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183213509.png" alt="image-20200504183213509"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183158002.png" alt="image-20200504183158002"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504183635911.png" alt="image-20200504183635911"></p>
-<p>错了删掉blog就行了</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184005862.png" alt="image-20200504184005862"></p>
-<p>启动</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184232913.png" alt="image-20200504184232913"></p>
-<p>在4000端口中</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184313173.png" alt="image-20200504184313173"></p>
-<p>hexo new创建新文章，hexo s用来预览的</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184553164.png" alt="image-20200504184553164"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184637956.png" alt="image-20200504184637956"></p>
-<p>我们可以该里面的md</p>
-<img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/../../%25E5%25B7%25A5%25E4%25BD%259C/%25E5%2585%2585%25E7%2594%25B5/image-20200504184829721.png" alt="image-20200504184829721" style="zoom:80%;">
-
-<p>先清理一下</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504184940680.png" alt="image-20200504184940680"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185036814.png" alt="image-20200504185036814"></p>
-<p>生成</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185111833.png" alt="image-20200504185111833"></p>
-<p>这样就有文章了</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185202492.png" alt="image-20200504185202492"></p>
-<p>部署到github中</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185601266.png" alt="image-20200504185601266"></p>
-<p>名字注意</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185710455.png" alt="image-20200504185710455"></p>
-<p>安装部署插件</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504185835464.png" alt="image-20200504185835464"></p>
-<p>设置yml这个文件</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504190015189.png" alt="image-20200504190015189"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504210140915.png" alt="image-20200504210140915"></p>
-<p>部署到远端</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504211845174.png" alt="image-20200504211845174"></p>
-<p>注意这里：后面有空格</p>
-<p>这样就成了</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504211927545.png" alt="image-20200504211927545"></p>
-<p>换主题</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504212708174.png" alt="image-20200504212708174"></p>
-<p>github.com/litten/hexo-theme-yilia</p>
-<p>下载主题到themes文件夹中</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504215006510.png" alt="image-20200504215006510"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504215023267.png" alt="image-20200504215023267"></p>
-<p>又看config那里换主题</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504215227063.png" alt="image-20200504215227063"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200504215241687.png" alt="image-20200504215241687"></p>
-<p>重新清理，生成博客文章，start</p>
-<p>hexo d推到远端</p>
-<p>要换个人博客里面超链接或者头像就根据yilia官网那样，修改yilia主题下的config文件的东西，详情可以看官网</p>
-<p>每次更新主题的配置那些都要</p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200505010656766.png" alt="image-20200505010656766"></p>
-<p>放图片</p>
-<p><a href="https://www.jianshu.com/p/f72aaad7b852" target="_blank" rel="noopener">https://www.jianshu.com/p/f72aaad7b852</a></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200506221134548.png" alt="image-20200506221134548"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200506221143857.png" alt="image-20200506221143857"></p>
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200506221157508.png" alt="image-20200506221157508"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var cheerio &#x3D; require(&#39;cheerio&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;14480345&#x2F;how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">function getPosition(str, m, i) &#123;</span><br><span class="line">  return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var version &#x3D; String(hexo.version).split(&#39;.&#39;);</span><br><span class="line">hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;</span><br><span class="line">  var config &#x3D; hexo.config;</span><br><span class="line">  if(config.post_asset_folder)&#123;</span><br><span class="line">        var link &#x3D; data.permalink;</span><br><span class="line">    if(version.length &gt; 0 &amp;&amp; Number(version[0]) &#x3D;&#x3D; 3)</span><br><span class="line">       var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 1) + 1;</span><br><span class="line">    else</span><br><span class="line">       var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 3) + 1;</span><br><span class="line">    &#x2F;&#x2F; In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;...&#x2F;about&#x2F;index.html&quot;.</span><br><span class="line">    var endPos &#x3D; link.lastIndexOf(&#39;&#x2F;&#39;) + 1;</span><br><span class="line">    link &#x3D; link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    var toprocess &#x3D; [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];</span><br><span class="line">    for(var i &#x3D; 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      var key &#x3D; toprocess[i];</span><br><span class="line"> </span><br><span class="line">      var $ &#x3D; cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: false,</span><br><span class="line">        xmlMode: false,</span><br><span class="line">        lowerCaseTags: false,</span><br><span class="line">        decodeEntities: false</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(&#39;img&#39;).each(function()&#123;</span><br><span class="line">        if ($(this).attr(&#39;src&#39;))&#123;</span><br><span class="line">            &#x2F;&#x2F; For windows style path, we replace &#39;\&#39; to &#39;&#x2F;&#39;.</span><br><span class="line">            var src &#x3D; $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;&#x2F;&#39;);</span><br><span class="line">            if(!&#x2F;http[s]*.*|\&#x2F;\&#x2F;.*&#x2F;.test(src) &amp;&amp;</span><br><span class="line">               !&#x2F;^\s*\&#x2F;&#x2F;.test(src)) &#123;</span><br><span class="line">              &#x2F;&#x2F; For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.</span><br><span class="line">              &#x2F;&#x2F; In addition, to support multi-level local directory.</span><br><span class="line">              var linkArray &#x3D; link.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                return elem !&#x3D; &#39;&#39;;</span><br><span class="line">              &#125;);</span><br><span class="line">              var srcArray &#x3D; src.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                return elem !&#x3D; &#39;&#39; &amp;&amp; elem !&#x3D; &#39;.&#39;;</span><br><span class="line">              &#125;);</span><br><span class="line">              if(srcArray.length &gt; 1)</span><br><span class="line">                srcArray.shift();</span><br><span class="line">              src &#x3D; srcArray.join(&#39;&#x2F;&#39;);</span><br><span class="line">              $(this).attr(&#39;src&#39;, config.root + link + src);</span><br><span class="line">              console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">            console.info&amp;&amp;console.info($(this));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] &#x3D; $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/image-20200506221249484.png" alt="image-20200506221249484"></p>
-<p>其实这样是给一篇博文弄一个文件夹，然后用来存图片</p>
+        <p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211542273.png" alt="image-20200321211542273"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211611509.png" alt="image-20200321211611509"></p>
+<p>省略时80端口</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211738223.png" alt="image-20200321211738223"></p>
+<p>访问静态资源，就是访问图片那些，设置了可以跨域，可能只是路由可以跨域，静态资源不一定能跨域</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215025693.png" alt="image-20200321215025693"></p>
+<p>jsonp现在不流行了</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215131231.png" alt="image-20200321215131231"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215235310.png" alt="image-20200321215235310"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215359582.png" alt="image-20200321215359582"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215450803.png" alt="image-20200321215450803"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215652639.png" alt="image-20200321215652639"></p>
+<p>通过js标签，将远程的数据用本地的函数操作</p>
+<p>不合理，数据请求放到本地</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215853552.png" alt="image-20200321215853552"></p>
+<p>ajax和fetch和axios的区别</p>
+<p> <a href="https://www.cnblogs.com/chaoyuehedy/p/10991132.html" target="_blank" rel="noopener">https://www.cnblogs.com/chaoyuehedy/p/10991132.html</a> </p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321220824900.png" alt="image-20200321220824900"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221011131.png" alt="image-20200321221011131"></p>
+<p>liveserver默认端口时5500</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221046979.png" alt="image-20200321221046979"></p>
+<p>这样就打开了服务，3000端口时我们listen弄得</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221205590.png" alt="image-20200321221205590"></p>
+<p>然后这就跨域了</p>
+<p>用上中间件，然后进行跨域</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221230925.png" alt="image-20200321221230925"></p>
+<p>这就成了</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221252850.png" alt="image-20200321221252850"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221309409.png" alt="image-20200321221309409"></p>
+<p>这就是cors添加的</p>
+<p>要更加精细化可以弄别的头部</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221415739.png" alt="image-20200321221415739"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221427943.png" alt="image-20200321221427943"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221447202.png" alt="image-20200321221447202"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221643370.png" alt="image-20200321221643370"></p>
+<p>配置</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221717570.png" alt="image-20200321221717570"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321223020503.png" alt="image-20200321223020503"></p>
+<p>就是我们访问localhost:8080/api和localhost:8080/nginx会分别跳到3000和5500那里</p>
+<p>8080是对外统一的入口</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321224330503.png" alt="image-20200321224330503"></p>
+<p>启动反向代理</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321224453085.png" alt="image-20200321224453085"></p>
+<p>这样就启动成功了</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225013141.png" alt="image-20200321225013141"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225030596.png" alt="image-20200321225030596"></p>
+<p>后端实际地址</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225340613.png" alt="image-20200321225340613"></p>
+<p>前端实际地址</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225416745.png" alt="image-20200321225416745"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225500629.png" alt="image-20200321225500629"></p>
+<p>这样子打就是通过8080的nginx进入5500访问那个html，然后html里面的fetch通过8080访问3000</p>
+<p>5500端口是liveserver提供的</p>
+<p>mock server和fake api是为了我们前端开发的时候后端没有那么快提供可以用的接口，所以就用他们来测试</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321223749855.png" alt="image-20200321223749855"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321235305806.png" alt="image-20200321235305806"></p>
 
       
 
@@ -302,7 +298,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习杂项</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
         		</li>
       		
 		</ul>
@@ -358,7 +354,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -372,15 +368,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          跨域及解决方案
-        
-      </div>
-    </a>
   
+    <a href="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo搭建教程</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

@@ -152,6 +152,135 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-跨域及解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">跨域及解决方案</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
+  	<time datetime="2020-05-07T15:04:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211542273.png" alt="image-20200321211542273"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211611509.png" alt="image-20200321211611509"></p>
+<p>省略时80端口</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321211738223.png" alt="image-20200321211738223"></p>
+<p>访问静态资源，就是访问图片那些，设置了可以跨域，可能只是路由可以跨域，静态资源不一定能跨域</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215025693.png" alt="image-20200321215025693"></p>
+<p>jsonp现在不流行了</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215131231.png" alt="image-20200321215131231"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215235310.png" alt="image-20200321215235310"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215359582.png" alt="image-20200321215359582"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215450803.png" alt="image-20200321215450803"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215652639.png" alt="image-20200321215652639"></p>
+<p>通过js标签，将远程的数据用本地的函数操作</p>
+<p>不合理，数据请求放到本地</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321215853552.png" alt="image-20200321215853552"></p>
+<p>ajax和fetch和axios的区别</p>
+<p> <a href="https://www.cnblogs.com/chaoyuehedy/p/10991132.html" target="_blank" rel="noopener">https://www.cnblogs.com/chaoyuehedy/p/10991132.html</a> </p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321220824900.png" alt="image-20200321220824900"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221011131.png" alt="image-20200321221011131"></p>
+<p>liveserver默认端口时5500</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221046979.png" alt="image-20200321221046979"></p>
+<p>这样就打开了服务，3000端口时我们listen弄得</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221205590.png" alt="image-20200321221205590"></p>
+<p>然后这就跨域了</p>
+<p>用上中间件，然后进行跨域</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221230925.png" alt="image-20200321221230925"></p>
+<p>这就成了</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221252850.png" alt="image-20200321221252850"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221309409.png" alt="image-20200321221309409"></p>
+<p>这就是cors添加的</p>
+<p>要更加精细化可以弄别的头部</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221415739.png" alt="image-20200321221415739"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221427943.png" alt="image-20200321221427943"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221447202.png" alt="image-20200321221447202"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221643370.png" alt="image-20200321221643370"></p>
+<p>配置</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321221717570.png" alt="image-20200321221717570"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321223020503.png" alt="image-20200321223020503"></p>
+<p>就是我们访问localhost:8080/api和localhost:8080/nginx会分别跳到3000和5500那里</p>
+<p>8080是对外统一的入口</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321224330503.png" alt="image-20200321224330503"></p>
+<p>启动反向代理</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321224453085.png" alt="image-20200321224453085"></p>
+<p>这样就启动成功了</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225013141.png" alt="image-20200321225013141"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225030596.png" alt="image-20200321225030596"></p>
+<p>后端实际地址</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225340613.png" alt="image-20200321225340613"></p>
+<p>前端实际地址</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225416745.png" alt="image-20200321225416745"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321225500629.png" alt="image-20200321225500629"></p>
+<p>这样子打就是通过8080的nginx进入5500访问那个html，然后html里面的fetch通过8080访问3000</p>
+<p>5500端口是liveserver提供的</p>
+<p>mock server和fake api是为了我们前端开发的时候后端没有那么快提供可以用的接口，所以就用他们来测试</p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321223749855.png" alt="image-20200321223749855"></p>
+<p><img src="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/image-20200321235305806.png" alt="image-20200321235305806"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hexo搭建教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -377,6 +506,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端学习</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习杂项</a>
