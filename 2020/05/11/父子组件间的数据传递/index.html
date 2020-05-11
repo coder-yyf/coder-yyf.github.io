@@ -6,15 +6,56 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | 波奇的博客</title>
+  <title>父子组件间的数据传递 | 波奇的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="波奇的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/index.html">
+  <meta name="description" content="父子组件通信-父传子props网络请求一般是最大的最外层那里请求数据 v-for遍历   大传小，一步步来  props是properties属性的意思  自定义事件emit来传  emit是发射的意思 root组件是cpn2的父，cpn2是cpn1的父  增强写法  作为key的时候加单引号还是不加单引号都没什么区别，所以还不如弄增强写法 子组件不来是不能用父组件的数据的 option越来越丰富">
+<meta property="og:type" content="article">
+<meta property="og:title" content="父子组件间的数据传递">
+<meta property="og:url" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/index.html">
 <meta property="og:site_name" content="波奇的博客">
+<meta property="og:description" content="父子组件通信-父传子props网络请求一般是最大的最外层那里请求数据 v-for遍历   大传小，一步步来  props是properties属性的意思  自定义事件emit来传  emit是发射的意思 root组件是cpn2的父，cpn2是cpn1的父  增强写法  作为key的时候加单引号还是不加单引号都没什么区别，所以还不如弄增强写法 子组件不来是不能用父组件的数据的 option越来越丰富">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123000213249.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123001140128.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041357387.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041508908.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041542560.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042029483.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042134039.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042500039.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042853842.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200319202645100.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/%25E5%25AD%25A6%25E4%25B9%25A0/%25E5%2589%258D%25E7%25AB%25AF/Vue/Vuejs%25E7%25AC%2594%25E8%25AE%25B0.assets/image-20200123043246212.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043426606.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043639934.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043804025.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043840902.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123044509064.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123044253784.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215539760.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215627838.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215823812.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123220012031.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215915183.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123220120405.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200414121832461.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225041391.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225346960.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200124000113271.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225548263.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123230216461.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123230104180.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235021935.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235436341.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235502457.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235952330.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200124000013453.png">
+<meta property="article:published_time" content="2020-05-11T13:08:26.000Z">
+<meta property="article:modified_time" content="2020-05-11T13:09:05.348Z">
 <meta property="article:author" content="波奇">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123000213249.png">
   
     <link rel="alternative" href="/atom.xml" title="波奇的博客" type="application/atom+xml">
   
@@ -150,36 +191,126 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-父子组件间的数据传递" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/" class="archive-article-date">
-  	<time datetime="2020-05-11T13:08:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/">父子组件间的数据传递</a>
+    <h1 class="article-title" itemprop="name">
+      父子组件间的数据传递
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/" class="archive-article-date">
+  	<time datetime="2020-05-11T13:08:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="父子组件通信-父传子props"><a href="#父子组件通信-父传子props" class="headerlink" title="父子组件通信-父传子props"></a>父子组件通信-父传子props</h3><p>网络请求一般是最大的最外层那里请求数据</p>
+<p>v-for遍历</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123000213249.png" alt="image-20200123000213249"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123001140128.png" alt="image-20200123001140128"></p>
+<p>大传小，一步步来</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041357387.png" alt="image-20200123041357387"></p>
+<p>props是properties属性的意思</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041508908.png" alt="image-20200123041508908"></p>
+<p>自定义事件emit来传</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041542560.png" alt="image-20200123041542560"></p>
+<p>emit是发射的意思</p>
+<p>root组件是cpn2的父，cpn2是cpn1的父</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042029483.png" alt="image-20200123042029483"></p>
+<p>增强写法</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042134039.png" alt="image-20200123042134039"></p>
+<p>作为key的时候加单引号还是不加单引号都没什么区别，所以还不如弄增强写法</p>
+<p>子组件不来是不能用父组件的数据的</p>
+<p>option越来越丰富了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042500039.png" alt="image-20200123042500039"></p>
+<p>这样就把app那个vue实例的东西传过来了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042853842.png" alt="image-20200123042853842"></p>
+<p>这里写错了吧，props是对象，</p>
+<p>没有写错，如果不限制类型默认值什么的的可以这样弄</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200319202645100.png" alt="image-20200319202645100"></p>
+<p>第二步一定要用v-bind不然它直接当成字符串了给下一层了，movies和message都是App组建的变量，如果穿的是单纯字符串就不用：</p>
+<p>第二种写法，上面那个是数组的写法，可以指定类型</p>
+<img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/../../%25E5%25AD%25A6%25E4%25B9%25A0/%25E5%2589%258D%25E7%25AB%25AF/Vue/Vuejs%25E7%25AC%2594%25E8%25AE%25B0.assets/image-20200123043246212.png" alt="image-20200123043246212" style="zoom:80%;">
+
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043426606.png" alt="image-20200123043426606"></p>
+<p>有require就是必传，不然会报错</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043639934.png" alt="image-20200123043639934"></p>
+<p>数组的默认值比较特殊，2.5上面变了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043804025.png" alt="image-20200123043804025"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043840902.png" alt="image-20200123043840902"></p>
+<p>要用工厂函数来创建，所谓工厂函数就是返回弄得结果弄过来的</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123044509064.png" alt="image-20200123044509064"></p>
+<p>最后一个是自己写的验证，必须是下面几种字符串的其中一种</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123044253784.png" alt="image-20200123044253784"></p>
+<p>自定义类型</p>
+<h3 id="父子组件通信-props驼峰标识"><a href="#父子组件通信-props驼峰标识" class="headerlink" title="父子组件通信-props驼峰标识"></a>父子组件通信-props驼峰标识</h3><p>前面本来是要写cMovies，但是改成了cmovies</p>
+<p> 传递数据是在用的标签上面</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215539760.png" alt="image-20200123215539760"></p>
+<p>为什么步写驼峰</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215627838.png" alt="image-20200123215627838"></p>
+<p>但是这样写确实空对象，原因是v-bind不支持驼峰，但是你在v-bind那里写成-分开就行了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215823812.png" alt="image-20200123215823812"></p>
+<p>这样用会报错，说没有明确的根元素</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123220012031.png" alt="image-20200123220012031"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215915183.png" alt="image-20200123215915183"></p>
+<p>改成这样</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123220120405.png" alt="image-20200123220120405"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200414121832461.png" alt="image-20200414121832461"></p>
+<h3 id="父子组件通信-子传父"><a href="#父子组件通信-子传父" class="headerlink" title="父子组件通信-子传父"></a>父子组件通信-子传父</h3><p>一般是子组件产生的事件要让父组件知道</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225041391.png" alt="image-20200123225041391"></p>
+<p>根据点击的东西告诉父组件，然后请求服务器，请求显示的数据</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225346960.png" alt="image-20200123225346960"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200124000113271.png" alt="image-20200124000113271"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225548263.png" alt="image-20200123225548263"></p>
+<p>这样就能知道点击了什么，但是父组件不知道，因此我们要自定义事件告诉父组件，第一个参数是事件名</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123230216461.png" alt="image-20200123230216461"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123230104180.png" alt="image-20200123230104180"></p>
+<p>注意这里还是有问题，用itemClick和-那个不行，所以我们还是别用驼峰，直接小写就好了，itemclick在emit那里，父组件哪里也用itemclick</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235021935.png" alt="image-20200123235021935"></p>
+<p>这里监听事件，又不让驼峰法</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235436341.png" alt="image-20200123235436341"></p>
+<p>这里不用传参数，默认把item传进去了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235502457.png" alt="image-20200123235502457"></p>
+<p>练习</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235952330.png" alt="image-20200123235952330"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200124000013453.png" alt="image-20200124000013453"></p>
+<p>和props样，都是父在右边</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,95 +322,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2020-05-07T15:04:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">跨域及解决方案</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/07/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">跨域及解决方案</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-05-06T14:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/06/hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">hexo搭建教程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习杂项</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -302,8 +444,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

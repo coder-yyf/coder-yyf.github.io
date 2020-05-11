@@ -152,6 +152,150 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-父子组件间的数据传递" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/">父子组件间的数据传递</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/" class="archive-article-date">
+  	<time datetime="2020-05-11T13:08:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="父子组件通信-父传子props"><a href="#父子组件通信-父传子props" class="headerlink" title="父子组件通信-父传子props"></a>父子组件通信-父传子props</h3><p>网络请求一般是最大的最外层那里请求数据</p>
+<p>v-for遍历</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123000213249.png" alt="image-20200123000213249"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123001140128.png" alt="image-20200123001140128"></p>
+<p>大传小，一步步来</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041357387.png" alt="image-20200123041357387"></p>
+<p>props是properties属性的意思</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041508908.png" alt="image-20200123041508908"></p>
+<p>自定义事件emit来传</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123041542560.png" alt="image-20200123041542560"></p>
+<p>emit是发射的意思</p>
+<p>root组件是cpn2的父，cpn2是cpn1的父</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042029483.png" alt="image-20200123042029483"></p>
+<p>增强写法</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042134039.png" alt="image-20200123042134039"></p>
+<p>作为key的时候加单引号还是不加单引号都没什么区别，所以还不如弄增强写法</p>
+<p>子组件不来是不能用父组件的数据的</p>
+<p>option越来越丰富了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042500039.png" alt="image-20200123042500039"></p>
+<p>这样就把app那个vue实例的东西传过来了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123042853842.png" alt="image-20200123042853842"></p>
+<p>这里写错了吧，props是对象，</p>
+<p>没有写错，如果不限制类型默认值什么的的可以这样弄</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200319202645100.png" alt="image-20200319202645100"></p>
+<p>第二步一定要用v-bind不然它直接当成字符串了给下一层了，movies和message都是App组建的变量，如果穿的是单纯字符串就不用：</p>
+<p>第二种写法，上面那个是数组的写法，可以指定类型</p>
+<img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/../../%25E5%25AD%25A6%25E4%25B9%25A0/%25E5%2589%258D%25E7%25AB%25AF/Vue/Vuejs%25E7%25AC%2594%25E8%25AE%25B0.assets/image-20200123043246212.png" alt="image-20200123043246212" style="zoom:80%;">
+
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043426606.png" alt="image-20200123043426606"></p>
+<p>有require就是必传，不然会报错</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043639934.png" alt="image-20200123043639934"></p>
+<p>数组的默认值比较特殊，2.5上面变了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043804025.png" alt="image-20200123043804025"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123043840902.png" alt="image-20200123043840902"></p>
+<p>要用工厂函数来创建，所谓工厂函数就是返回弄得结果弄过来的</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123044509064.png" alt="image-20200123044509064"></p>
+<p>最后一个是自己写的验证，必须是下面几种字符串的其中一种</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123044253784.png" alt="image-20200123044253784"></p>
+<p>自定义类型</p>
+<h3 id="父子组件通信-props驼峰标识"><a href="#父子组件通信-props驼峰标识" class="headerlink" title="父子组件通信-props驼峰标识"></a>父子组件通信-props驼峰标识</h3><p>前面本来是要写cMovies，但是改成了cmovies</p>
+<p> 传递数据是在用的标签上面</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215539760.png" alt="image-20200123215539760"></p>
+<p>为什么步写驼峰</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215627838.png" alt="image-20200123215627838"></p>
+<p>但是这样写确实空对象，原因是v-bind不支持驼峰，但是你在v-bind那里写成-分开就行了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215823812.png" alt="image-20200123215823812"></p>
+<p>这样用会报错，说没有明确的根元素</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123220012031.png" alt="image-20200123220012031"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123215915183.png" alt="image-20200123215915183"></p>
+<p>改成这样</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123220120405.png" alt="image-20200123220120405"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200414121832461.png" alt="image-20200414121832461"></p>
+<h3 id="父子组件通信-子传父"><a href="#父子组件通信-子传父" class="headerlink" title="父子组件通信-子传父"></a>父子组件通信-子传父</h3><p>一般是子组件产生的事件要让父组件知道</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225041391.png" alt="image-20200123225041391"></p>
+<p>根据点击的东西告诉父组件，然后请求服务器，请求显示的数据</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225346960.png" alt="image-20200123225346960"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200124000113271.png" alt="image-20200124000113271"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123225548263.png" alt="image-20200123225548263"></p>
+<p>这样就能知道点击了什么，但是父组件不知道，因此我们要自定义事件告诉父组件，第一个参数是事件名</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123230216461.png" alt="image-20200123230216461"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123230104180.png" alt="image-20200123230104180"></p>
+<p>注意这里还是有问题，用itemClick和-那个不行，所以我们还是别用驼峰，直接小写就好了，itemclick在emit那里，父组件哪里也用itemclick</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235021935.png" alt="image-20200123235021935"></p>
+<p>这里监听事件，又不让驼峰法</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235436341.png" alt="image-20200123235436341"></p>
+<p>这里不用传参数，默认把item传进去了</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235502457.png" alt="image-20200123235502457"></p>
+<p>练习</p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200123235952330.png" alt="image-20200123235952330"></p>
+<p><img src="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/image-20200124000013453.png" alt="image-20200124000013453"></p>
+<p>和props样，都是父在右边</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/11/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-跨域及解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -508,11 +652,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习杂项</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端学习</a>
               </li>
             
             <div class="clearfix"></div>
